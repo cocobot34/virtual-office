@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 
 const navItems = [
   { href: '/', label: 'Office', icon: '🏢' },
+  { href: '/org-chart', label: 'Org Chart', icon: '🌳' },
+  { href: '/workflows', label: 'Workflows', icon: '⚡' },
   { href: '/activity', label: 'Activity', icon: '📊' },
   { href: '/meetings', label: 'Meetings', icon: '👥' },
   { href: '/settings', label: 'Settings', icon: '⚙️' },

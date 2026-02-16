@@ -65,7 +65,7 @@ export default function WorkflowsPage() {
                       )}
                     </div>
                     <div className="text-sm text-gray-400">
-                      Started {getTimeAgo(workflow.startTime)}
+                      Started {getTimeAgo(workflow.startedAt)}
                     </div>
                   </div>
                   <div className={`px-3 py-1 rounded-full text-xs font-medium ${

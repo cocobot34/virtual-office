@@ -37,29 +37,29 @@ export default function OrgChartPage() {
 
         {/* Org Chart */}
         <div className="max-w-6xl mx-auto">
-          {/* CEO Level */}
+          {/* Owner Level */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
             className="flex justify-center mb-12"
           >
-            <div className="glass rounded-2xl p-6 w-80 text-center border-2 border-emerald-500/30">
+            <div className="glass rounded-2xl p-6 w-80 text-center border-2 border-blue-500/30">
               <div className="text-6xl mb-3">👨‍💼</div>
               <div className="text-2xl font-bold mb-1">Nick Vadini</div>
-              <div className="text-emerald-400 font-semibold mb-2">CEO / Founder</div>
+              <div className="text-blue-400 font-semibold mb-2">Owner / Founder</div>
               <div className="text-sm text-gray-400">
-                Visionary leader building AI-powered fire department solutions
+                Visionary founder overseeing the autonomous organization
               </div>
             </div>
           </motion.div>
 
           {/* Connection Line */}
           <div className="flex justify-center mb-8">
-            <div className="w-0.5 h-16 bg-gradient-to-b from-emerald-500/50 to-transparent" />
+            <div className="w-0.5 h-16 bg-gradient-to-b from-blue-500/50 via-emerald-500/50 to-transparent" />
           </div>
 
-          {/* Chief of Staff */}
+          {/* CEO Level - Coco */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -67,13 +67,13 @@ export default function OrgChartPage() {
             className="flex justify-center mb-12"
           >
             <Link href={`/agents/${coco.id}`} className="block w-80">
-              <div className="glass-hover rounded-2xl p-6 text-center border-2 border-emerald-500/20">
+              <div className="glass-hover rounded-2xl p-6 text-center border-2 border-emerald-500/30">
                 <div className="text-5xl mb-3">{coco.avatar}</div>
                 <div className="text-xl font-bold mb-1">{coco.name}</div>
                 <div className="text-emerald-400 font-semibold mb-2">{coco.role}</div>
                 <div className="text-sm text-gray-400 mb-3">{coco.team}</div>
                 <div className="text-xs text-gray-500">
-                  Orchestrates all agent activities and reports to Nick
+                  Runs the virtual office and coordinates all agent activities
                 </div>
               </div>
             </Link>
@@ -147,22 +147,22 @@ export default function OrgChartPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400">
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                  <span><strong>Nick (CEO)</strong> - Strategic vision and direction</span>
+                  <div className="w-3 h-3 rounded-full bg-blue-500" />
+                  <span><strong>Nick (Owner)</strong> - Visionary founder overseeing operations</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                  <span><strong>Coco (Chief of Staff)</strong> - Day-to-day operations and coordination</span>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                  <span><strong>Coco (CEO)</strong> - Runs the virtual office, coordinates all teams</span>
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-400" />
-                  <span><strong>Team Leads</strong> - Specialized domain experts</span>
+                  <div className="w-3 h-3 rounded-full bg-emerald-400" />
+                  <span><strong>Team Agents</strong> - Specialized domain experts</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 rounded-full bg-gray-400" />
-                  <span>All agents report through Coco to Nick</span>
+                  <span>All agents report to Coco, who reports to Nick</span>
                 </div>
               </div>
             </div>

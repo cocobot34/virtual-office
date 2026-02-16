@@ -1,0 +1,115 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     VIRTUAL OFFICE FLOOR PLAN LAYOUT                         ║
+║                                                                              ║
+║  Legend:                                                                     ║
+║  [🐾] = Agent Avatar    [▓] = Desk    [○] = Chair    [💧] = Water Cooler   ║
+║  ---- = Pathway         ≈≈≈ = Team Zone Border                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│   ╔═══════════════════════╗                 ╔═══════════════════════╗      │
+│   ║  MANAGEMENT (Emerald) ║                 ║  MINTUP DEV (Blue)    ║      │
+│   ║  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ║                 ║  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  ║      │
+│   ║                       ║                 ║                       ║      │
+│   ║      [▓]──[🐾]        ║                 ║   [▓]──[🐾]  [▓]──[🎨] ║      │
+│   ║      Coco's           ║                 ║   Forge's    Pixel's  ║      │
+│   ║       Desk            ║ ·····           ║    Desk       Desk    ║      │
+│   ╚═══════════════════════╝     ·           ╚═══════════════════════╝      │
+│                                  ·                      ·                   │
+│                                   ·                    ·                    │
+│                                    ·                  ·                     │
+│                                     ·       (○)      ·                      │
+│                                      ·   (○)   (○)  ·                       │
+│   ╔══════════════════════╗            ·             ·                       │
+│   ║  RESEARCH (Purple)   ║        (○)  ╔═══════╗  (○)                      │
+│   ║  ─ ─ ─ ─ ─ ─ ─ ─ ─   ║   ····     ║MEETING║     ····                  │
+│   ║                      ║··          ║ TABLE ║          ··                │
+│   ║    [▓]──[🔍]         ║        (○)  ╚═══════╝  (○)                      │
+│   ║    Scout's           ║            ·             ·                       │
+│   ║     Desk             ║           ·   (○)   (○)  ·                      │
+│   ╚══════════════════════╝          ·       (○)      ·                     │
+│                                    ·                  ·                     │
+│                                   ·                    ·                    │
+│   ╔════════════════════════╗     ·                     ·                   │
+│   ║ FREEDOMOLOGY (Amber)   ║ ····                       ·                  │
+│   ║  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   ║                             ·                 │
+│   ║                        ║                              ·                │
+│   ║     [▓]──[🗺️]          ║                               ·     ╔═══════╗ │
+│   ║     Atlas's            ║                                ·    ║ PERSO-║ │
+│   ║      Desk              ║                                 ·   ║  NAL  ║ │
+│   ╚════════════════════════╝                                  ·  ║ (Pink)║ │
+│                                                                · ║───────║ │
+│                                                                  ║ [▓]   ║ │
+│                                                                  ║ [📋]  ║ │
+│                                                                  ║ Sage's║ │
+│                                                                  ╚═══════╝ │
+│                                                                            │
+│                                                                  ╔════╗   │
+│                                                                  ║ 💧 ║   │
+│                                                                  ║COOL║   │
+│                                                                  ╚════╝   │
+│                                                                  [🔍] ← Scout here
+│                                                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+                           LIVE ACTIVITY FEED
+───────────────────────────────────────────────────────────────────────────────
+ 🟢 Scout: Found trending Reddit post about Next.js...         15m ago
+ 🔨 Forge: Deployed MintUp landing page update to production    32m ago
+ 🗺️ Atlas: Started daily standup with deployment team          45m ago
+═══════════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════════
+                            BOTTOM NAVIGATION
+───────────────────────────────────────────────────────────────────────────────
+     🏢 Office  |  📊 Activity  |  👥 Meetings  |  ⚙️ Settings
+═══════════════════════════════════════════════════════════════════════════════
+
+
+AGENT POSITIONS (Dynamic):
+─────────────────────────
+Location: desk
+  - Coco (🐾) → Management zone desk
+  - Forge (🔨) → MintUp Dev zone desk 1
+  - Pixel (🎨) → MintUp Dev zone desk 2
+  - Sage (📋) → Personal zone desk
+
+Location: meeting_table
+  - Atlas (🗺️) → Seated at chair position based on participant order
+
+Location: water_cooler
+  - Scout (🔍) → Near water cooler (idle/break)
+
+Location: offline
+  - (none currently)
+
+
+STATUS GLOW COLORS:
+───────────────────
+🟢 Green (working)  → Coco, Forge, Pixel, Sage
+🟡 Yellow (idle)    → Scout (at water cooler)
+🔵 Blue (meeting)   → Atlas (at meeting table)
+⚪ Gray (offline)   → (none)
+
+
+ANIMATIONS:
+───────────
+✨ Grid pattern pulses every 8 seconds
+✨ Ambient floor glow shifts every 10 seconds
+✨ Team zones pulse with staggered delays
+✨ Agents bounce gently (2-3 second loop)
+✨ Status glows pulse every 2 seconds
+✨ Floating particles drift up and down
+✨ Meeting table pulses when active
+✨ Hover to see agent tooltip with current task
+
+
+INTERACTIONS:
+─────────────
+👆 Click agent → Go to their profile page
+🖱️ Hover agent → See current task tooltip
+📱 Mobile responsive → Maintains layout on small screens
+🎯 All animations smooth 60fps with Framer Motion

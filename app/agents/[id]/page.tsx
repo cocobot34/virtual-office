@@ -13,8 +13,10 @@ const statusConfig = {
 };
 
 const relationshipColors = {
+  close: 'text-emerald-500',
   friendly: 'text-emerald-400',
   neutral: 'text-yellow-400',
+  professional: 'text-blue-400',
   tense: 'text-red-400',
 };
 
@@ -124,11 +126,6 @@ export default function AgentProfilePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-emerald-400 mb-2">How They Think</h3>
-                  <p className="text-gray-300 leading-relaxed">{agent.soul.thinkingStyle}</p>
-                </div>
-
-                <div>
                   <h3 className="text-sm font-semibold text-emerald-400 mb-2">How They Speak</h3>
                   <p className="text-gray-300 leading-relaxed mb-3">{agent.soul.speakingStyle}</p>
                   
@@ -197,7 +194,12 @@ export default function AgentProfilePage() {
                     className="flex items-start space-x-3 bg-white/5 rounded-lg p-3"
                   >
                     <span className="text-blue-400 mt-0.5">💡</span>
-                    <span className="text-gray-300 text-sm">{memory}</span>
+                    <div className="flex-1">
+                      <p className="text-gray-300 text-sm">{memory.content}</p>
+                      <p className="text-gray-500 text-xs mt-1">
+                        {memory.date} • {memory.source}
+                      </p>
+                    </div>
                   </motion.li>
                 ))}
               </ul>
@@ -325,7 +327,6 @@ export default function AgentProfilePage() {
                         <div className="flex-1">
                           <div className="font-medium">{rel.agent.name}</div>
                           <div className="flex items-center space-x-1 mt-1">
-                            <span>{rel.emoji}</span>
                             <span className={`text-xs font-semibold ${relationshipColors[rel.quality]}`}>
                               {rel.quality.charAt(0).toUpperCase() + rel.quality.slice(1)}
                             </span>
