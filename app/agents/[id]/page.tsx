@@ -13,9 +13,16 @@ const statusConfig = {
 };
 
 const relationshipColors = {
-  excellent: 'text-emerald-400',
-  good: 'text-blue-400',
-  neutral: 'text-gray-400',
+  friendly: 'text-emerald-400',
+  neutral: 'text-yellow-400',
+  tense: 'text-red-400',
+};
+
+const locationLabels = {
+  desk: 'At desk',
+  meeting_table: 'Meeting table',
+  water_cooler: 'Water cooler',
+  offline: 'Offline'
 };
 
 export default function AgentProfilePage() {
@@ -70,9 +77,14 @@ export default function AgentProfilePage() {
                 <div>
                   <h1 className="text-3xl font-bold mb-1">{agent.name}</h1>
                   <p className="text-xl text-gray-400 mb-2">{agent.role}</p>
-                  <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm">
-                    {agent.team}
-                  </span>
+                  <div className="flex items-center space-x-3">
+                    <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm">
+                      {agent.team}
+                    </span>
+                    <span className="text-sm text-gray-400">
+                      📍 {locationLabels[agent.location]}
+                    </span>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className={`status-dot ${statusConfig[agent.status].dot}`} />
@@ -93,18 +105,75 @@ export default function AgentProfilePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Personality */}
+            {/* Soul / Personality */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="glass rounded-2xl p-6"
             >
-              <h2 className="text-xl font-semibold mb-3 flex items-center">
+              <h2 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="mr-2">🧠</span>
-                Personality
+                Soul & Personality
               </h2>
-              <p className="text-gray-300 leading-relaxed">{agent.personality}</p>
+              
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-sm font-semibold text-emerald-400 mb-2">Who They Are</h3>
+                  <p className="text-gray-300 leading-relaxed">{agent.soul.personality}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold text-emerald-400 mb-2">How They Think</h3>
+                  <p className="text-gray-300 leading-relaxed">{agent.soul.thinkingStyle}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold text-emerald-400 mb-2">How They Speak</h3>
+                  <p className="text-gray-300 leading-relaxed mb-3">{agent.soul.speakingStyle}</p>
+                  
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <div className="text-xs font-semibold text-gray-400 mb-3">Signature Phrases:</div>
+                    <div className="flex flex-wrap gap-2">
+                      {agent.soul.signaturePhrases.map((phrase, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-lg text-sm italic"
+                        >
+                          "{phrase}"
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Responsibilities */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="glass rounded-2xl p-6"
+            >
+              <h2 className="text-xl font-semibold mb-4 flex items-center">
+                <span className="mr-2">📋</span>
+                Responsibilities
+              </h2>
+              <ul className="space-y-3">
+                {agent.responsibilities.map((responsibility, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15 + (index * 0.05) }}
+                    className="flex items-start space-x-3 bg-white/5 rounded-lg p-3"
+                  >
+                    <span className="text-emerald-400 mt-0.5">▸</span>
+                    <span className="text-gray-300 text-sm">{responsibility}</span>
+                  </motion.li>
+                ))}
+              </ul>
             </motion.div>
 
             {/* Memories */}
@@ -116,7 +185,7 @@ export default function AgentProfilePage() {
             >
               <h2 className="text-xl font-semibold mb-4 flex items-center">
                 <span className="mr-2">💾</span>
-                Key Memories
+                Key Memories & Insights
               </h2>
               <ul className="space-y-3">
                 {agent.memories.map((memory, index) => (
@@ -127,7 +196,7 @@ export default function AgentProfilePage() {
                     transition={{ delay: 0.2 + (index * 0.05) }}
                     className="flex items-start space-x-3 bg-white/5 rounded-lg p-3"
                   >
-                    <span className="text-emerald-400 mt-0.5">→</span>
+                    <span className="text-blue-400 mt-0.5">💡</span>
                     <span className="text-gray-300 text-sm">{memory}</span>
                   </motion.li>
                 ))}
@@ -138,7 +207,7 @@ export default function AgentProfilePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.25 }}
               className="glass rounded-2xl p-6"
             >
               <h2 className="text-xl font-semibold mb-4 flex items-center">
@@ -152,7 +221,7 @@ export default function AgentProfilePage() {
                       key={activity.id}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + (index * 0.05) }}
+                      transition={{ delay: 0.25 + (index * 0.05) }}
                       className="bg-white/5 rounded-lg p-3"
                     >
                       <div className="flex items-start justify-between mb-1">
@@ -179,7 +248,7 @@ export default function AgentProfilePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
+              transition={{ delay: 0.12 }}
               className="glass rounded-2xl p-6"
             >
               <h2 className="text-xl font-semibold mb-4 flex items-center">
@@ -232,7 +301,7 @@ export default function AgentProfilePage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
+              transition={{ delay: 0.18 }}
               className="glass rounded-2xl p-6"
             >
               <h2 className="text-xl font-semibold mb-4 flex items-center">
@@ -245,7 +314,7 @@ export default function AgentProfilePage() {
                     key={rel.agentId}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.25 + (index * 0.05) }}
+                    transition={{ delay: 0.18 + (index * 0.05) }}
                   >
                     <Link
                       href={`/agents/${rel.agentId}`}
@@ -255,8 +324,11 @@ export default function AgentProfilePage() {
                         <span className="text-2xl">{rel.agent.avatar}</span>
                         <div className="flex-1">
                           <div className="font-medium">{rel.agent.name}</div>
-                          <div className={`text-xs font-semibold ${relationshipColors[rel.quality]}`}>
-                            {rel.quality.charAt(0).toUpperCase() + rel.quality.slice(1)}
+                          <div className="flex items-center space-x-1 mt-1">
+                            <span>{rel.emoji}</span>
+                            <span className={`text-xs font-semibold ${relationshipColors[rel.quality]}`}>
+                              {rel.quality.charAt(0).toUpperCase() + rel.quality.slice(1)}
+                            </span>
                           </div>
                         </div>
                       </div>
