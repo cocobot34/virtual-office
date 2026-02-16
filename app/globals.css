@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-white/10 transition-all duration-300;
+  }
+  
+  .status-dot {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+  
+  .status-working {
+    @apply bg-emerald-500;
+  }
+  
+  .status-idle {
+    @apply bg-yellow-500;
+  }
+  
+  .status-meeting {
+    @apply bg-blue-500;
+  }
+  
+  .status-offline {
+    @apply bg-gray-500;
+  }
+}
